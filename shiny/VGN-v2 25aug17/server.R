@@ -51,8 +51,11 @@ shinyServer( function ( input, output ) {
     
     # filter node list - used now to speed up testing by getting a smaller network
     # will later be used to select nodes for egonets and DM/AA/PT/AM selection
-    nodes <- unique(head(org.list.bi.data[,c(1:9)],
-                         n = 15))
+    
+    #nodes <- unique(head(org.list.bi.data[,c(1:9)],
+    #                     n = 150))
+    nodes <- unique(org.list.bi.data[,c(1:9)])
+    
     # change numeric labels to text labels
     nodes$capacity.group <- capacity.labels[nodes$capacity]
     nodes$sector.group <- sector.labels[nodes$sector]
@@ -66,7 +69,7 @@ shinyServer( function ( input, output ) {
     # transfrom data to work in network3D library
     links$from <- as.numeric(factor(links$from)) - 1 
     links$to <- as.numeric(factor(links$to)) - 1
-    nl <- cbind(idf = factor(nodes$org.name, levels = nodes$org.name), nodes)
+    nl <- cbind(org.name = factor(nodes$org.name, levels = nodes$org.name), nodes)
     
     
     
@@ -75,11 +78,13 @@ shinyServer( function ( input, output ) {
                  Source = "from",
                  Target = "to",
                  NodeID = "org.name", 
-                 Group = "group",
+                 Group = "sector.group",
                  height = 400,
                  width = 600,
                  legend = T,
-                 zoom = T)
+                 zoom = T,
+                 fontSize = 12
+    )
   })
   
 })

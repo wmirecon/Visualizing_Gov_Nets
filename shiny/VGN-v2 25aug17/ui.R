@@ -3,6 +3,7 @@
 # load in the required R packages
 library( shiny )
 library( igraph )
+library( networkD3 )
 
 # make sure strings are handled as strings
 options( stringsAsFactors = F )
@@ -38,7 +39,9 @@ shinyUI( fluidPage(
     # values determined in server.R; accessed here by name assigned there, placed in quotes ("")
     mainPanel(
       # render the map made in server.R as plot output
-      forceNetworkOutput( "net.map" )
+      forceNetworkOutput( "net.map" ),
+      h4("Please be patient with large networks. They are loading but may be slow."),
+      h5("Use the selection criteria to view a smaller piece of the network.")
     )
   )
 ))
