@@ -1,6 +1,7 @@
 # this is a file for functions to be used in the shiny app
 
-# setup a set of look up tables (R's equivalent to a Python dictionary) for transforming attribute data to text labels
+# setup a set of look up tables (R's equivalent to a Python dictionary) for transforming
+#   attribute data to text labels
 
 capacity.labels <- c("1" = "Very small orgaizations",
                      "2" = "Small organizations",

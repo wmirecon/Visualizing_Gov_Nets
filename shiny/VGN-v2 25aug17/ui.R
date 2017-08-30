@@ -4,6 +4,8 @@
 library( shiny )
 library( igraph )
 library( networkD3 )
+library( dplyr )
+library( RColorBrewer )
 
 # make sure strings are handled as strings
 options( stringsAsFactors = F )
@@ -38,10 +40,17 @@ shinyUI( fluidPage(
     # setup output panel
     # values determined in server.R; accessed here by name assigned there, placed in quotes ("")
     mainPanel(
+      h3("Please select a subnetwork"),
+      
       # render the map made in server.R as plot output
-      forceNetworkOutput( "net.map" ),
+      forceNetworkOutput( "net.map", height = "650px" ),
+      
+      # setup text output for below the figure
+      p("The number after a node's name is its connection rate, reporting how many links the node has out of its possible links (normalized degree centrality)."),
+      br(),
       h4("Please be patient with large networks. They are loading but may be slow."),
-      h5("Use the selection criteria to view a smaller piece of the network.")
+      p("Use the selection criteria to view a smaller piece of the network.")
+      
     )
   )
 ))
