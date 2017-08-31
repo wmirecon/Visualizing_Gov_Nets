@@ -18,11 +18,11 @@ org.list.bi.data <- read.csv( "data/org_list_bi_data.csv" )
 
 
 # read in edge data for all of the functional subnetworks
-is.el <- read.csv( "data/is_2015_el.csv ")
-ta.el <- read.csv( "data/ta_2015_el.csv ")
-pc.el <- read.csv( "data/pc_2015_el.csv ")
-rt.el <- read.csv( "data/rt_2015_el.csv ")
-fs.el <- read.csv( "data/fs_2015_el.csv ")
+is.el <- read.csv( "data/is_2015_el.csv" )
+ta.el <- read.csv( "data/ta_2015_el.csv" )
+pc.el <- read.csv( "data/pc_2015_el.csv" )
+rt.el <- read.csv( "data/rt_2015_el.csv" )
+fs.el <- read.csv( "data/fs_2015_el.csv" )
 
 # node size factor is used to create greater contrast between more and less central nodes
 # an unmodified degree measure, particularly a normalized measure, doesn't have sufficient
