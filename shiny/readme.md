@@ -17,7 +17,7 @@ RStudio: https://www.rstudio.com/
 > library(shiny)
 
 
-3. Shiny apps are made up of a ui.R (for the interface) and server.R (for the backend) files and associated data folders and any R scripts for functions. Download the folder that contains all of these files.
+3. Shiny apps are made up of a ui.R (for the interface) and server.R (for the backend) files, associated data folders, and any R scripts for helper functions. Download the whole folder that contains all of these files, not just the contents.
 4. Open ui.R, server.R, or both in RStudio. Press the 'Run App' button in the top-right corner of the R script panel.
 
 =======
