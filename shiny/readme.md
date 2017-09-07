@@ -12,9 +12,9 @@ RStudio: https://www.rstudio.com/
 
 2. From RStudio, download and install R/shiny:
 
-> install.packages("shiny")
+`install.packages("shiny")`
 
-> library(shiny)
+`library(shiny)`
 
 
 3. Shiny apps are made up of a ui.R (for the interface) and server.R (for the backend) files, associated data folders, and any R scripts for helper functions. Download the whole folder that contains all of these files, not just the contents.
