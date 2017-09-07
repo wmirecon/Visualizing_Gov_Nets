@@ -27,10 +27,10 @@ For v2 and later, I **strongly** recommend opening in a browser, as this is nece
 
 If you find you need to install any other packages, they can always be installed with:
 
-> install.packages("<package name>")
+`install.packages("<package name>")`
 
 for example:
-  > install.packages("igraph")
+`install.packages("igraph")`
 
 To install all necessary packages use:
-  > install.packages(c("shiny", "igraph","networkD3","dplyr"))
+`install.packages(c("shiny", "igraph","networkD3","dplyr"))`
