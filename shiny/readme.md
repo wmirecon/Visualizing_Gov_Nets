@@ -25,8 +25,9 @@ RStudio: https://www.rstudio.com/
 
 The current (as of 13 September 17) CRAN release of _networkD3_ does not support fixing the legend in place while panning and zooming the map. But the current developer version of the package does. To fix the legend in place, install the developer version using the following steps:
 
-1. install the *devtools* package in R/RStudio: `install.packages("devtools")`
-2. install the dev version of *networkD3*: `install_github('christophergandrud/networkD3')`
+1. Install the *devtools* package in R/RStudio: `install.packages("devtools")`
+2. Attach the *devtools* package: `library(devtools)`
+3. Install the dev version of *networkD3*: `install_github('christophergandrud/networkD3')`
 
 =======
 
