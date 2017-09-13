@@ -21,6 +21,14 @@ RStudio: https://www.rstudio.com/
 4. Open ui.R, server.R, or both in RStudio. Press the 'Run App' button in the top-right corner of the R script panel.
 
 =======
+## Fixing the Legend in place while zooming and panning the map
+
+The current (as of 13 September 17) CRAN release of _networkD3_ does not support fixing the legend in place while panning and zooming the map. But the current developer version of the package does. To fix the legend in place, install the developer version using the following steps:
+
+1. install the *devtools* package in R/RStudio: `install.packages("devtools")`
+2. install the dev version of *networkD3*: `install_github('christophergandrud/networkD3')`
+
+=======
 
 **Note**: If you wish to run the app from a browser, select the drop down menu (small black arrow) to the right of the 'Run App' button and select 'Run external'.
 For v2 and later, I **strongly** recommend opening in a browser, as this is necessary to support all of the interactive map's features.
