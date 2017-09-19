@@ -43,6 +43,7 @@ filter_el <- function( el, orgs ) {
 select.orgs <- function( orgs, index.set ) {
   col.set <- c( c(1:9), index.set )         # set of column indexes that contain attribute and filtering data
   orgs.filter <- orgs[,col.set]             # select only the relevant AA/DM/PT data, plus initial attributes
+  # print(ncol(orgs.filter))
   if ( ncol( orgs.filter ) > 10 ) {         # PT is stored in three columns while AA/DM use only 1
     # PT must have 1 in at least one of the three columns
     # sum across columns to get a total

@@ -45,9 +45,9 @@ shinyUI( fluidPage(
                    ),
       # choose how to use the AA/DM/PT inputs - union or intersection
       radioButtons( "join.method",
-                    label = "Choose a filtering method (not hooked up yet; currently uses union):",
+                    label = "Choose a filtering method:",
                     choices = c("Organizations in all of the selected filters (Intersection)" = 1,
-                                "Organizations in any of the selected filters (Union)"),
+                                "Organizations in any of the selected filters (Union)" = 2),
                     selected = 1
                     )
       ), # end of sidebar panel

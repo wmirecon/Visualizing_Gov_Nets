@@ -62,21 +62,53 @@ shinyServer( function ( input, output ) {
       aa.select <- as.numeric(aa.choice.index[input$aa.select])
       dm.select <- as.numeric(dm.choice.index[input$dm.select])
       
-      filter.select <- c(pt.select,
-                         aa.select,
-                         dm.select
-                         )
-      #print(filter.select) #-- was used for bug testing
-      
-      if ( is.null( filter.select ) || is.na( filter.select ) ) {
+      if ( is.na(dm.select) && is.na(pt.select[1]) && is.na(aa.select ) ) {
         #nodes <- unique(head(org.list.bi.data[,c(1:9)], n = 50))
         nodes <- unique(org.list.bi.data[,c(1:9)])
       } else {
-        nodes <- select.orgs( orgs = org.list.bi.data,
-                              index = na.omit( filter.select ) )
-        nodes <- unique( nodes )
+        filter.select <- c(pt.select,
+                           aa.select,
+                           dm.select
+                           )
+        nodes.aa <- select.orgs( orgs = org.list.bi.data,
+                              index.set = na.omit( filter.select ) )
+        if ( input$join.method == 1 ) {
+          
+          filter.count <-
+            as.numeric(!is.na(dm.choice.index[input$dm.select])) +
+            as.numeric(!is.na(pt.choice.index[input$pt.select])) +
+            as.numeric(!is.na(aa.choice.index[input$aa.select]))
+          
+          raw.selection <- c()
+          if ( !is.na( dm.select ) ){
+            additions <- select.orgs( orgs = org.list.bi.data,
+                                      index.set = dm.select
+                                      )$org.name
+            raw.selection <- c( raw.selection, additions )
+          }
+          if ( !is.na( pt.select[1] ) ){
+            additions <- select.orgs( orgs = org.list.bi.data,
+                                      index.set = pt.select
+            )$org.name
+            raw.selection <- c( raw.selection, additions )
+          }
+          if ( !is.na( aa.select ) ){
+            additions <- select.orgs( orgs = org.list.bi.data,
+                                      index.set = aa.select
+            )$org.name
+            raw.selection <- c( raw.selection, additions )
+          }
+          
+          org.freq.df <- data.frame(table(raw.selection))
+          selected.orgs <- org.freq.df[org.freq.df$Freq >= filter.count,1]
+          nodes <- org.list.bi.data[org.list.bi.data$org.name %in% selected.orgs,c(1:9)]
+          nodes <- unique( nodes )
+        } else {
+          nodes <- select.orgs( orgs = org.list.bi.data,
+                                index.set = na.omit( filter.select ) )
+          nodes <- unique( nodes )
+        }
       }
-      
       
       # change numeric labels to text labels
       nodes$capacity.group <- capacity.labels[nodes$capacity]
