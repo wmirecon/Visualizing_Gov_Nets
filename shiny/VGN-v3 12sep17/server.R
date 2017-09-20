@@ -28,7 +28,7 @@ fs.el <- read.csv( "data/fs_2015_el.csv" )
 # an unmodified degree measure, particularly a normalized measure, doesn't have sufficient
 #   variation in size for someone looking at the map to see the difference
 # later versions can make this an input, and allow for varying sizes
-node.size.factor <- 75
+node.size.factor <- 150
 
 # make a union network that inlcudes links from all the functional subnetworks
 union.el <- unique( rbind( is.el, ta.el, pc.el, rt.el, fs.el ) )
@@ -150,6 +150,15 @@ shinyServer( function ( input, output ) {
         }
       }
       
+    # if (TRUE) {
+    #    filter.node.set <- nodes$org.name
+    #    nodes <- unique(org.list.bi.data[,c(1:9)])
+    #    nodes$opacity <- 0.8
+    #    print(nodes$org.name[!(nodes$org.name %in% filter.node.set)])
+    #    nodes$opacity[ !(nodes$org.name %in% filter.node.set) ] <- 0.2
+    #    print(nodes[nodes$opacity == 0.2, c(1,10)])
+    #  }
+      
       # change numeric labels to text labels
       nodes$capacity.group <- capacity.labels[nodes$capacity]
       nodes$sector.group <- sector.labels[nodes$sector]
@@ -160,6 +169,8 @@ shinyServer( function ( input, output ) {
       # filter the edgelist based on the node selection
       links <- filter_el(el = el,
                          orgs = nodes[,1])
+      # binarize the edgelist (remove duplicate entries)
+      links <- unique(links)
       
       # generate the igraph network (graph) object
       net <- graph.data.frame( links,
@@ -182,16 +193,17 @@ shinyServer( function ( input, output ) {
       
       # the measure is then normalized by dividing by the maximum possible degree
       # maximum degree = (# nodes - 1) as any node could be connected to any other node
-      degrees$degree <- ( degrees$degree / ( nrow(nodes) - 1 ) ) * node.size.factor
+      degrees$degree <- degrees$degree / ( nrow(nodes) - 1 )
       
       # merge degree centrality into node list
       nodes <- left_join(nodes,
                          degrees,
                          by = "org.name")
+      nodes$size <- nodes$degree * node.size.factor
       
       nodes$tool.tip <- paste(nodes$org.name,
                               " - ",
-                              round(nodes$degree, digits = 2),
+                              100 * round(nodes$degree, digits = 2),
                               "%",
                               sep = "")
       
@@ -199,32 +211,31 @@ shinyServer( function ( input, output ) {
       nodes.d3 <- cbind(org.name.f = factor(nodes$org.name, levels = nodes$org.name), nodes)
       nodes.d3 <- nodes.d3[order(nodes.d3$org.name),]
       
+      # create separate, ordered link lists for use with the d3 interactive map
       links.d3 <- links
       links.d3 <- links.d3[order(links.d3$from),]
+      
+      # create from and to indices that are matched to the d3 link lists
+      # this ensures proper matching of nodes and links in the network map
       links.d3$from.index <- match(links.d3$from, nodes.d3$org.name) - 1
       links.d3$to.index <- match(links.d3$to, nodes.d3$org.name) - 1
       
-      
-      # correctly matching nodes and links requires sorting the 'source' data in the same order
-      #   as the node ids
-      
-      
-      forceNetwork(Links = links.d3,
-                   Nodes = nodes.d3,
-                   Source = "from.index",
-                   Target = "to.index",
-                   NodeID = "tool.tip", 
-                   Group = "sector.group",
-                   Nodesize = "degree",
-                   #colourScale = Dark2,
-                   #height = 400,
-                   #width = 600,
-                   legend = T,
-                   zoom = T,
-                   fontSize = 12,
-                   charge = -275
+      forceNetwork(Links    = links.d3,
+                   Nodes    = nodes.d3,
+                   Source   = "from.index",
+                   Target   = "to.index",
+                   NodeID   = "tool.tip", 
+                   Group    = "sector.group",
+                   Nodesize = "size",
+                   #height  = 400,
+                   #width   = 600,
+                   legend   = T,
+                   zoom     = T,
+                   fontSize = 16,
+                   charge   = -275
       ) # end of forceNetwork
-      } # end of if-statement
+      
+    } # end of if-statement
   }) # end of map output
   
 }) # end of shinyServer

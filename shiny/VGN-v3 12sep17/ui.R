@@ -17,7 +17,7 @@ source("look up helpers.R")
 shinyUI( fluidPage(
   
   # app title
-  titlePanel( "Visualizing Governance Networks-V2 25Aug17" ),
+  titlePanel( "Visualizing Governance Networks-V3 12Sep17" ),
   
   # use a sidebar layout; controls on the left, map on the right
   sidebarLayout(
