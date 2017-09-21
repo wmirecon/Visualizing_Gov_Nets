@@ -31,7 +31,7 @@ The current (as of 13 September 17) CRAN release of _networkD3_ does not support
 
 =======
 
-**Note**: If you wish to run the app from a browser, select the drop down menu (small black arrow) to the right of the 'Run App' button and select 'Run external'.
+**Note**: If you wish to run the app from a browser, in RStudio, select the drop down menu (small black arrow) to the right of the 'Run App' button and select 'Run external'.
 For v2 and later, I **strongly** recommend opening in a browser, as this is necessary to support all of the interactive map's features.
 
 If you find you need to install any other packages, they can always be installed with:
