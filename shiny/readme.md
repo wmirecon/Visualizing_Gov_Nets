@@ -42,4 +42,4 @@ for example:
 `install.packages("igraph")`
 
 To install all necessary packages use:
-`install.packages(c("shiny", "igraph","networkD3","dplyr"))`
+`install.packages(c("shiny", "igraph","networkD3","dplyr", "RColorBrewer"))`
