@@ -124,4 +124,3 @@ juris.level.labels <- c("1" = "Village/Sub-town",
                         "6" = "State",
                         "7" = "National",
                         "8" = "International")
-

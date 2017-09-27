@@ -150,20 +150,12 @@ shinyServer( function ( input, output ) {
         }
       }
       
-    # if (TRUE) {
-    #    filter.node.set <- nodes$org.name
-    #    nodes <- unique(org.list.bi.data[,c(1:9)])
-    #    nodes$opacity <- 0.8
-    #    print(nodes$org.name[!(nodes$org.name %in% filter.node.set)])
-    #    nodes$opacity[ !(nodes$org.name %in% filter.node.set) ] <- 0.2
-    #    print(nodes[nodes$opacity == 0.2, c(1,10)])
-    #  }
-      
       # change numeric labels to text labels
       nodes$capacity.group <- capacity.labels[nodes$capacity]
       nodes$sector.group <- sector.labels[nodes$sector]
       nodes$juris.group <- juris.labels[nodes$jurisdiction]
       nodes$juris.level.group <- juris.level.labels[nodes$juris.level]
+      nodes$color <- code.colors[nodes$sector]
       
       #print(nodes) #-- was used for bug testing
       # filter the edgelist based on the node selection
@@ -228,11 +220,14 @@ shinyServer( function ( input, output ) {
                    Group    = "sector.group",
                    Nodesize = "size",
                    #height  = 400,
-                   #width   = 600,
+                   #width   = 900,
                    legend   = T,
                    zoom     = T,
-                   fontSize = 16,
-                   charge   = -275
+                   fontSize = 24,
+                   charge   = -275,
+                   linkColour = "wheat",
+                   colourScale = JS("d3.scaleOrdinal(d3.schemeCategory10);"),
+                   radiusCalculation = JS(" Math.sqrt(d.nodesize)+3")
       ) # end of forceNetwork
       
     } # end of if-statement
