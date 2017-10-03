@@ -43,3 +43,12 @@ for example:
 
 To install all necessary packages use:
 `install.packages(c("shiny", "igraph","networkD3","dplyr", "RColorBrewer"))`
+
+=======
+## Versioning Information
+
+Design aspect added for each version:
+1. Subnetwork selection and static mapping
+2. Dynamic/Interactive mapping
+3. Subnet filtering and improved map readability
+4. Individual node selection
