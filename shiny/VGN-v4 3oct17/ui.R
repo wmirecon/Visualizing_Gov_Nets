@@ -19,7 +19,7 @@ names(org.list) <- org.list  # values must be named in checkbox, so naming with 
 shinyUI( fluidPage(
   
   # app title
-  titlePanel( "Visualizing Governance Networks-V4 3Oct17 - egos" ),
+  titlePanel( "Visualizing Governance Networks-V4 3Oct17" ),
   
   # use a sidebar layout; controls on the left, map on the right
   sidebarLayout(
