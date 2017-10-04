@@ -2,7 +2,20 @@
 # Shiny Apps for Visualizing Governance Networks
 ******************************
 
-To view the app:
+V4 of the app has been deployed on shinyapps.io:
+https://wmirecon.shinyapps.io/vgn-v4_3oct17/
+
+=======
+## Versioning Information
+
+Design aspect added for each version:
+1. Subnetwork selection and static mapping
+2. Dynamic/Interactive mapping
+3. Subnet filtering and improved map readability
+4. Individual node selection
+
+=======
+If you wish to run the app locally:
 1. Download and Install R and RStudio
 
 R: https://www.r-project.org/
@@ -44,11 +57,3 @@ for example:
 To install all necessary packages use:
 `install.packages(c("shiny", "igraph","networkD3","dplyr", "RColorBrewer"))`
 
-=======
-## Versioning Information
-
-Design aspect added for each version:
-1. Subnetwork selection and static mapping
-2. Dynamic/Interactive mapping
-3. Subnet filtering and improved map readability
-4. Individual node selection
