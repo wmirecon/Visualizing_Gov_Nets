@@ -15,6 +15,7 @@ Design aspect added for each version:
 4. Individual node selection
 
 =======
+
 If you wish to run the app locally:
 1. Download and Install R and RStudio
 
