@@ -1,6 +1,8 @@
 ******************************
 # Shiny Apps for Visualizing Governance Networks
 ******************************
+V5 of the app has been deployed on shinyapps.io:
+https://wmirecon.shinyapps.io/vgn-v5_10oct17/
 
 V4 of the app has been deployed on shinyapps.io:
 https://wmirecon.shinyapps.io/vgn-v4_3oct17/
