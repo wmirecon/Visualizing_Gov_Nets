@@ -13,6 +13,7 @@ Design aspect added for each version:
 2. Dynamic/Interactive mapping
 3. Subnet filtering and improved map readability
 4. Individual node selection
+5. Rebuild with reactive functions and add network stats and top orgs output
 
 =======
 
