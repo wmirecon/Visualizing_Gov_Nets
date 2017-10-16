@@ -19,7 +19,7 @@ names(org.list) <- org.list  # values must be named in checkbox, so naming with 
 shinyUI( fluidPage(
   
   # app title
-  titlePanel( "Visualizing Governance Networks-V5" ),
+  titlePanel( "Visualizing Governance Networks" ),
   
   # use a sidebar layout; controls on the left, map on the right
   sidebarLayout(
@@ -73,9 +73,9 @@ shinyUI( fluidPage(
                                               label = ("Organization List"),
                                               choices = sort(org.list)
                                               )  # end of checkbox input
-                  )   # end of tabPanel2: egonets selection
-      )  # end of tabsets
-    ), # end of sidebar panel
+                  ) # end of tabPanel2: egonets selection
+                  ) # end of tabsets
+      ), # end of sidebar panel
     
     # setup output panel
     # values determined in server.R; accessed here by name assigned there, placed in quotes ("")
@@ -98,7 +98,21 @@ shinyUI( fluidPage(
           h4("The most connected organizations"),
           p("Initially sorted by degree centrality"),
           dataTableOutput("key.orgs.table")
-        ) # end of key orgs panel
+        ), # end of key orgs panel
+        tabPanel("More Information",
+                 h3("Project Information"),
+                 HTML("<p>Project Final Report <a href = \"https://github.com/wmirecon/Visualizing_Gov_Nets/blob/master/VGN%20Final%20Report%20v1%2016oct17.pdf\">on Github</a>."),
+                 HTML("<p>Project Data Wrangling Report <a href = \"https://github.com/wmirecon/Visualizing_Gov_Nets/blob/master/data%20wrangling%20report.pdf\">on Github</a>."),
+                 HTML("<p>Application data publicly available <a href = \"https://github.com/wmirecon/Water_Quality_Governance_Networks\">on Github</a>."),
+                 HTML("<p>Dataset Codebook <a href = \"https://github.com/wmirecon/Water_Quality_Governance_Networks/blob/master/CodeBook%20v1%20Anonymized.pdf\">on Github</a>."),
+                 HTML("<p>App Source Code <a href = \"https://github.com/wmirecon/Visualizing_Gov_Nets/tree/master/shiny/VGN-v5%2010oct17\">on Github</a>."),
+                 HTML("<p><a href = \"http://igraph.org/r/\">R igraph network analysis package</a>, used for computing network statistics."),
+                 h3("Network Terminology Definitions"),
+                 p("Network Density: Number of links observed divided by total possible number of links (D = L/(n(n-1)) where L is link count and n is number of nodes)."),
+                 p("Degree: The number of links a node has, normalized by dividing by the number of organizations minus 1 (n-1)."),
+                 p("Eigenvector: Your degree as well as the degree of your neighbors, normalized to a range of 0-1."),
+                 p("Betweenness: How many of the shortest paths from one node to another run through this node, normalized by dividing by a theoretical maximum.")
+        ) # end of tabPanel3: references
       ) # end of main panel tab sets
     ) # end of main panel
   ) # end of sidebar layout

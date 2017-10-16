@@ -402,7 +402,7 @@ shinyServer( function ( input, output ) {
   output$net.density <- renderText({
     if( input$net.select != "Select a subnet" ) {
       net <- get.net()
-      return(graph.density(net))
+      return(100 * graph.density(net))
     } else     # end of if to check if output should be generated
       return("0.00")
   }) # end of net.density({})
