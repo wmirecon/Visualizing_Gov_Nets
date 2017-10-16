@@ -5,6 +5,6 @@ account: wmirecon
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 223827
-bundleId: 1029629
+bundleId: 1029634
 url: https://wmirecon.shinyapps.io/vgn-v5_10oct17/
-when: 1508190689.30989
+when: 1508190914.63189
