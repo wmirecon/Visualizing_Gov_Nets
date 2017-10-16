@@ -107,6 +107,7 @@ shinyUI( fluidPage(
                  HTML("<p>Dataset Codebook <a href = \"https://github.com/wmirecon/Water_Quality_Governance_Networks/blob/master/CodeBook%20v1%20Anonymized.pdf\">on Github</a>."),
                  HTML("<p>App Source Code <a href = \"https://github.com/wmirecon/Visualizing_Gov_Nets/tree/master/shiny/VGN-v5%2010oct17\">on Github</a>."),
                  HTML("<p><a href = \"http://igraph.org/r/\">R igraph network analysis package</a>, used for computing network statistics."),
+                 HTML("<p><a href = \"http://christophergandrud.github.io/networkD3/\">NetworkD3 package</a>, used for generating the network map."),
                  h3("Network Terminology Definitions"),
                  p("Network Density: Number of links observed divided by total possible number of links (D = L/(n(n-1)) where L is link count and n is number of nodes)."),
                  p("Degree: The number of links a node has, normalized by dividing by the number of organizations minus 1 (n-1)."),
