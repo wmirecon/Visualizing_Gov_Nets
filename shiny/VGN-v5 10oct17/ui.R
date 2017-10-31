@@ -101,7 +101,8 @@ shinyUI( fluidPage(
         ), # end of key orgs panel
         tabPanel("More Information",
                  h3("Project Information"),
-                 HTML("<p>Project Final Report <a href = \"https://github.com/wmirecon/Visualizing_Gov_Nets/blob/master/VGN%20Final%20Report%20v1%2016oct17.pdf\">on Github</a>."),
+                 HTML("<p>App User Guide <a href = \"https://github.com/wmirecon/Visualizing_Gov_Nets/blob/master/VGN%20User%20Guide.pdf\">on Github</a>."),
+                 HTML("<p>App Technical Guide <a href = \"https://github.com/wmirecon/Visualizing_Gov_Nets/blob/master/VGN%20Tech%20Guide.pdf\">on Github</a>."),
                  HTML("<p>Project Data Wrangling Report <a href = \"https://github.com/wmirecon/Visualizing_Gov_Nets/blob/master/data%20wrangling%20report.pdf\">on Github</a>."),
                  HTML("<p>Application data publicly available <a href = \"https://github.com/wmirecon/Water_Quality_Governance_Networks\">on Github</a>."),
                  HTML("<p>Dataset Codebook <a href = \"https://github.com/wmirecon/Water_Quality_Governance_Networks/blob/master/CodeBook%20v1%20Anonymized.pdf\">on Github</a>."),
